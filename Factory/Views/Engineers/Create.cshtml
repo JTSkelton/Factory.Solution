@@ -9,15 +9,15 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.EngineerName)
-  @Html.TextBoxFor(model => model.EngineerName)
+  <p>Engineer Name</p>
+  @Html.TextBoxFor(model => model.EngineerName)<br><br>
 
-  @Html.LabelFor(model => model.Age)
-  @Html.TextBoxFor(model => model.Age)
+  <p>Age</p>
+  @Html.TextBoxFor(model => model.Age)<br><br>
 
-  @Html.LabelFor(model => model.PhoneNumber)
-  @Html.TextBoxFor(model => model.PhoneNumber)
+  <p>Phone Number</p>
+  @Html.TextBoxFor(model => model.PhoneNumber)<br><br>
   
-  <button type="submit" class="btn btn-primary" style="width:250px">Add New Engineer</button>
-}
-<p>@Html.ActionLink("Show all Engineers", "Index")</p>
+  <button type="submit" class="btn btn-outline-success" style="width:250px">Add New Engineer</button>
+}<br>
+@Html.ActionLink("Show all Engineers", "Index", new {id = 0}, new {@class = "btn btn-outline-primary"})

@@ -6,11 +6,11 @@
 <h4>Add a new machine</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.MachienName)
-  @Html.TextBoxFor(model => model.MachienName)
+  <p>Machine Name</p>
+  @Html.TextBoxFor(model => model.MachienName)<br><br>
 
   @Html.Label("Select Engineer")
-  @Html.DropDownList("EngineerId", "None")
-  <button type="submit" class="btn btn-primary" style="width:250px">Add New Machine</button>
-}
-<p>@Html.ActionLink("Show all Machiens", "Index")</p>
+  @Html.DropDownList("EngineerId", "None")<br><br>
+  <button type="submit" class="btn btn-outline-success" style="width:250px">Add New Machine</button>
+}<br>
+<p>@Html.ActionLink("Show all Machiens", "Index", new {id = 0}, new {@class = "btn btn-outline-primary" })</p>

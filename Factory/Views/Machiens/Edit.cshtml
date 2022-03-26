@@ -4,17 +4,16 @@
 
 @model Factory.Models.Machien;
 
-<h2>Edit</h2>
+<h2>Edit this Machine: @Html.DisplayFor(model => model.MachienName)</h2>
 
-<h4>Edit this Machine: @Html.DisplayFor(model => model.MachienName)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.MachienId)
 
-  @Html.LabelFor(model => model.MachienName)
-  @Html.EditorFor(model => model.MachienName)
-  
+
+ <p>Machine Name:</p> @Html.EditorFor(model => model.MachienName)
+
   <input type="submit" value="Save" class = "btn btn-outline-success" />
 }<br>
 <p>@Html.ActionLink("Back to Machines", "Index", new {id = 0}, new {@class = "btn btn-outline-success" })</p>
