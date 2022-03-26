@@ -18,9 +18,7 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      var thisItem = _db.EngineerMachiens
-        .Include(join => join.Machiens)
-        .Include(join => join.Engineers);
+      var thisItem = _db.Machiens;
     return View(thisItem);
     }
 
@@ -88,16 +86,10 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-      public ActionResult DeleteEngineer(int id)
-    {
-      var thisMachien = _db.Machiens.FirstOrDefault(machien => machien.MachienId == id);
-      return View(thisMachien);
-    }
-
-[HttpPost, ActionName("DeleteEngineer")]
-public ActionResult DeleteEngineerConfirmed(int joinId)
+[HttpPost]
+public ActionResult DeleteEngineer(int joinId)
 {
-    var joinEntry = _db.EngineerMachiens.FirstOrDefault(entry => entry.EngineerId == joinId);
+    var joinEntry = _db.EngineerMachiens.FirstOrDefault(entry => entry.EngineerMachiensId == joinId);
     _db.EngineerMachiens.Remove(joinEntry);
     _db.SaveChanges();
     return RedirectToAction("Index");

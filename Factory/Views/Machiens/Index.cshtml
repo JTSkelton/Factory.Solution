@@ -15,23 +15,17 @@
             <th>
                 Machine Name
             </th>
-            <th>
-                Engineer Name
-            </th>
         </tr>
     </thead>
     <tbody>
-        @foreach(EngineerMachiens machiens in Model)
+        @foreach(Machien machiens in Model)
         {
             <tr class="table table-hover table-secondary">
                 <td width 10%>
-                    @machiens.Machiens.MachienId
+                    @machiens.MachienId
                 </td>
                 <td width 50%>
-                    @machiens.Machiens.MachienName
-                </td>
-                <td>
-                @machiens.Engineers.EngineerName
+                    @machiens.MachienName
                 </td>
                 <td>
                 @Html.ActionLink("Details", "Details", new { id = @machiens.MachienId}, new { @class = "btn btn-outline-warning" })

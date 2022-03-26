@@ -10,7 +10,7 @@
   @Html.TextBoxFor(model => model.MachienName)
 
   @Html.Label("Select Engineer")
-  @Html.DropDownList("EngineerId")
+  @Html.DropDownList("EngineerId", "None")
   <button type="submit" class="btn btn-primary" style="width:250px">Add New Machine</button>
 }
 <p>@Html.ActionLink("Show all Machiens", "Index")</p>

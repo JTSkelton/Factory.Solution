@@ -42,10 +42,11 @@ else
                   <h4>@join.Engineers.EngineerName</h4>
                 </td>
                 <td>
-                  @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
-                </td>
-                <td>
-                @Html.ActionLink("RemoveEngineer", "DeleteEngineer", "Machiens", new { id = @join.Engineers.EngineerId}, new { @class = "btn btn-outline-danger" })
+                @using (Html.BeginForm("DeleteEngineer", "Machiens"))
+                  {
+                    @Html.Hidden("joinId", @join.EngineerMachiensId)
+                    <input type="submit" value="Delete" class = "btn btn-outline-danger" />
+                  }
                 </td>
             </tr>
         }
@@ -54,5 +55,6 @@ else
 }
 
 <br>
-<p>@Html.ActionLink("Back to Machiens", "Index")</p>
-<p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachienId })</p>
+
+@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachienId }, new { @class = "btn btn-outline-success" })<br><br>
+@Html.ActionLink("Back to Machines", "Index", new {id = 0}, new { @class = "btn btn-outline-success" })

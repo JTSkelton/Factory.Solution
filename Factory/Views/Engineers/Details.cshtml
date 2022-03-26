@@ -79,14 +79,17 @@ else
                 @Html.ActionLink("Details", "Details", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                  @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
-                </td>
-                <td>
-                @Html.ActionLink("Remove Machine", "Delete", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                @using (Html.BeginForm("DeleteMachine", "Engineers"))
+                    {
+                    @Html.Hidden("joinId", @join.EngineerMachiensId)
+                        <input type="submit" value="Remove Machine" class = "btn btn-outline-danger" />
+                    }
                 </td>
             </tr>
         }
     </tbody>
 </table>
   }
+@Html.ActionLink("Add Machine", "AddMachine", new { id = Model.EngineerId }, new { @class = "btn btn-outline-success" })
+
 @Html.ActionLink("Back to List", "Index", new { id = Model.EngineerId }, new { @class = "btn btn-outline-info" })
