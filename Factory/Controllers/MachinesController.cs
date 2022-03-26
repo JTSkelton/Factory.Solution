@@ -31,13 +31,13 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Machien machien, int EngineerId)
+    public ActionResult Create(Machien machiens, int EngineerId)
     {
-      _db.Machiens.Add(machien);
+      _db.Machiens.Add(machiens);
       _db.SaveChanges();
       if (EngineerId != 0)
     {
-        _db.EngineerMachiens.Add(new EngineerMachiens() { EngineerId = EngineerId, MachienId = machien.MachienId });
+        _db.EngineerMachiens.Add(new EngineerMachiens() { EngineerId = EngineerId, MachienId = machiens.MachienId });
         _db.SaveChanges();
     }
       return RedirectToAction("Index");
@@ -60,9 +60,9 @@ namespace Factory.Controllers
 
     [HttpPost]
     public ActionResult Edit(Machien machien, int EngineerId)
-     {
+    {
       bool duplicate = _db.EngineerMachiens.Any(join => 
-        join.EngineerId == EngineertId && join.MachienId == machien.MachienId);
+        join.EngineerId == EngineerId && join.MachienId == machien.MachienId);
 
       if (EngineerId != 0 && !duplicate)
       {
