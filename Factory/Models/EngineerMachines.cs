@@ -8,7 +8,7 @@ namespace Factory.Models
         public int EngineerMachiensId { get; set; }
         public int MachienId { get; set; }
         public int EngineerId { get; set; }
-        public virtual Machine Machiens { get; set; }
+        public virtual Machien Machiens { get; set; }
         public virtual Engineer Engineers { get; set; }
     }
 }
