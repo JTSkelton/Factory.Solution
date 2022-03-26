@@ -1,0 +1,58 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machien
+<h2>Client Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.MachienName): @Html.DisplayFor(model => model.MachienName)<h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This machien does not belong to any engineers</p>
+}
+else
+{
+  <h4>Engineers's the @Html.DisplayFor(model => model.MachienName) belongs to:</h4>
+  <table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+              Machien Name
+            </th>
+            <th>
+              Engineer Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var join in Model.JoinEntities)
+        {
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                  <h4>@join.Machiens.MachienId</h4>
+                </td>
+                <td width 50%>
+                  <h4>@join.Machiens.MachienName</h4>
+                </td>
+                <td width 50%>
+                  <h4>@join.Engineers.EngineerName</h4>
+                </td>
+                <td>
+                  @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
+                </td>
+                <td>
+                @Html.ActionLink("DeleteEngineer", "DeleteEngineer", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+
+<br>
+<p>@Html.ActionLink("Back to Machiens", "Index")</p>
+<p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachienId })</p>

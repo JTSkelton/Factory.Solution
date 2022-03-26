@@ -1,0 +1,50 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+
+<h1>All Factory Machiens</h1>
+
+<table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Machien Name
+            </th>
+            <th>
+                Engineer Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(EngineerMachiens machiens in Model)
+        {
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                    @machiens.Machiens.MachienId
+                </td>
+                <td width 50%>
+                    @machiens.Machiens.MachienName
+                </td>
+                <td>
+                @machiens.Engineers.EngineerName
+                </td>
+                <td>
+                @Html.ActionLink("Details", "Details", new { id = @machiens.MachienId}, new { @class = "btn btn-outline-warning" })
+                </td>
+                <td>
+                @Html.ActionLink("Edit", "Edit", new { id = @machiens.MachienId}, new { @class = "btn btn-outline-warning" })
+                </td>
+                <td>
+                @Html.ActionLink("Delete", "Delete", new { id = @machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>@Html.ActionLink("Add New Machien", "Create", new { id = 1 }, new { @class = "btn btn-outline-success" })</p>

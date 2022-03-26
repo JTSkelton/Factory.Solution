@@ -1,0 +1,92 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h1>@Html.DisplayFor(model => model.EngineerName)'s Details</h1>
+
+<table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Engineer Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Age
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                    <h4>@Html.DisplayFor(model => model.EngineerId)</h4>
+                </td>
+                <td width 50%>
+                    <h4>@Html.DisplayFor(model => model.EngineerName)</h4>
+                </td>
+                <td width 50%>
+                    <h4>@Html.DisplayFor(model => model.PhoneNumber)</h4>
+                </td>
+                <td width 50%>
+                    <h4>@Html.DisplayFor(model => model.Age)</h4>
+                </td>
+                <td width 50%>
+                    @Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId }, new { @class = "btn btn-outline-info" })
+                </td>
+                <td width 50%>
+                    @Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+    </tbody>
+</table>
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Engineer does not maintain any machiens</p>
+}
+else
+{
+  <h1>@Html.DisplayFor(model => model.EngineerName)'s Machien List:</h1>
+
+    <table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+              Machien Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var join in Model.JoinEntities)
+        {
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                  <h4>@join.Machiens.MachienId</h4>
+                </td>
+                <td width 50%>
+                  <h4>@join.Machiens.MachienName</h4>
+                </td>
+                <td>
+                @Html.ActionLink("Details", "Details", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
+                </td>
+                <td>
+                  @Html.ActionLink("Edit", "Edit", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
+                </td>
+                <td>
+                @Html.ActionLink("Delete", "Delete", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+  }
+  </ul>
