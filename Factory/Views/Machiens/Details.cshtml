@@ -45,7 +45,7 @@ else
                   @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                @Html.ActionLink("DeleteEngineer", "DeleteEngineer", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                @Html.ActionLink("RemoveEngineer", "Delete", "Engineers", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
                 </td>
             </tr>
         }

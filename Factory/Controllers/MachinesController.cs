@@ -26,7 +26,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.EningeerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
       return View();
     }
 

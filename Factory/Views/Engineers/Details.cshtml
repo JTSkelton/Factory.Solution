@@ -76,17 +76,17 @@ else
                   <h4>@join.Machiens.MachienName</h4>
                 </td>
                 <td>
-                @Html.ActionLink("Details", "Details", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
+                @Html.ActionLink("Details", "Details", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                  @Html.ActionLink("Edit", "Edit", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
+                  @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                @Html.ActionLink("Delete", "Delete", "Clients", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                @Html.ActionLink("Remove Machien", "Delete", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
   }
-  </ul>
+@Html.ActionLink("Back to List", "Index", new { id = Model.EngineerId }, new { @class = "btn btn-outline-info" })
