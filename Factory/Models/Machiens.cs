@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Factory.Models
 {
-  public class Machine
+  public class Machien
   {
-    public Machine()
+    public Machien()
         {
             this.JoinEntities = new HashSet<EngineerMachiens>();
         }
