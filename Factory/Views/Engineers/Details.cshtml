@@ -48,11 +48,11 @@
 </table>
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This Engineer does not maintain any machiens</p>
+  <p>This Engineer does not maintain any machines</p>
 }
 else
 {
-  <h1>@Html.DisplayFor(model => model.EngineerName)'s Machien List:</h1>
+  <h1>@Html.DisplayFor(model => model.EngineerName)'s Machine List:</h1>
 
     <table class ="table table-borderd table-striped" style="width: 100%">
     <thead>
@@ -61,7 +61,7 @@ else
                 Id
             </th>
             <th>
-              Machien Name
+              Machine Name
             </th>
         </tr>
     </thead>
@@ -82,7 +82,7 @@ else
                   @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                @Html.ActionLink("Remove Machien", "Delete", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                @Html.ActionLink("Remove Machine", "Delete", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
                 </td>
             </tr>
         }

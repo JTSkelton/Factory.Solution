@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this Machein: @Html.DisplayFor(model => model.MachienName)</h4>
+<h4>Edit this Machine: @Html.DisplayFor(model => model.MachienName)</h4>
 
 @using (Html.BeginForm())
 {
@@ -20,4 +20,4 @@
 
   <input type="submit" value="Save" class = "btn btn-outline-success" />
 }<br>
-<p>@Html.ActionLink("Back to Machiens", "Index", new {id = 0}, new {@class = "btn btn-outline-success" })</p>
+<p>@Html.ActionLink("Back to Machines", "Index", new {id = 0}, new {@class = "btn btn-outline-success" })</p>

@@ -3,13 +3,13 @@
 }
 
 @model Factory.Models.Machien
-<h2>Client Details</h2>
+<h2>Machine Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.MachienName): @Html.DisplayFor(model => model.MachienName)<h3>
+<h3>Machine Name: @Html.DisplayFor(model => model.MachienName)<h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This machien does not belong to any engineers</p>
+  <p>This machine does not belong to any engineers</p>
 }
 else
 {
@@ -21,7 +21,7 @@ else
                 Id
             </th>
             <th>
-              Machien Name
+              Machine Name
             </th>
             <th>
               Engineer Name
@@ -45,7 +45,7 @@ else
                   @Html.ActionLink("Edit", "Edit", "Machiens", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-info" })
                 </td>
                 <td>
-                @Html.ActionLink("RemoveEngineer", "Delete", "Engineers", new { id = @join.Machiens.MachienId}, new { @class = "btn btn-outline-danger" })
+                @Html.ActionLink("RemoveEngineer", "DeleteEngineer", "Machiens", new { id = @join.Engineers.EngineerId}, new { @class = "btn btn-outline-danger" })
                 </td>
             </tr>
         }
